@@ -4,8 +4,12 @@ import csv
 class City:
   def __init__(self, name , lat, lon):
     self.name = name
-    self.lat = lat
-    self.lon = lon
+    self.lat = float(lat)
+    self.lon = float(lon)
+
+  def __repr__(self):
+        return f"{self.name}| Latitude {self.lat} | Longitude {self.lon})"
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -37,7 +41,7 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-  print(f"{c.name} | Latitude: {c.lat} | Longitude: {c.lon}")
+  print(c)
 
 # STRETCH GOAL!
 #
@@ -69,9 +73,19 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+# while True:
+#   print(f"Location 1")
+#
+#   location1_lat = input("Please Enter latitude")
+#   location1_long = input("Please Enter longitiude")
+#   print(f"Location 2")
+#   location1_lat = input("Please Enter latitude")
+#   location2_long= input("Please Enter longitiude ")
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
+  s_lat = sorted([lat1 , lat2])
+  s_long = sorted([lon1, lon2])
   within = []
 
   # TODO Ensure that the lat and lon valuse are all floats
