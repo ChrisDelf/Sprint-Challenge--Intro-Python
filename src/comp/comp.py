@@ -1,5 +1,6 @@
-# The following list comprehension exercises will make use of the 
-# defined Human class. 
+import re
+# The following list comprehension exercises will make use of the
+# defined Human class.
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -24,7 +25,7 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = []
+a = [human.name for human in humans if bool(re.match(r"^D", human.name))]
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
